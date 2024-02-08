@@ -5,13 +5,14 @@ from tkinter.simpledialog import askstring as prompt
 import customtkinter
 
 '''
-nombre:
-apellido:
+nombre:Pablo
+apellido: Rico
 ---
 Ejercicio: entrada_salida_10bis
 ---
 Enunciado:
-Al presionar el botón  'Calcular', se deberán obtener los valores contenidos en las cajas de texto (txt_importe y txt_descuento), 
+Al presionar el botón  'Calcular', se deberán obtener los valores contenidos en las cajas de texto 
+(txt_importe y txt_descuento), 
 transformarlos en números y mostrar el importe actualizado con el descuento utilizando el Dialog Alert.
 '''
 
@@ -41,8 +42,14 @@ class App(customtkinter.CTk):
         self.btn_mostrar.grid(row=2, pady=20, columnspan=2, sticky="nsew")
 
     def btn_mostrar_on_click(self):
-        pass
-
+        importe=self.txt_importe.get()
+        descuento=self.txt_descuento.get()
+        importe_int=int(importe)
+        descuento_int=int(descuento)
+        importe_descuento= importe_int * (descuento_int / 100)
+        importe_actualizado= importe_int - importe_descuento
+        mensaje=f"Su importe actualizado es {importe_actualizado} y su descuento fue de un {descuento_int}%"
+        alert("Descuento", mensaje)
 
 if __name__ == "__main__":
     app = App()

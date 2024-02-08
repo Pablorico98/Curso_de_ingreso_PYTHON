@@ -28,8 +28,7 @@ class App(customtkinter.CTk):
 
     def btn_mostrar_on_click(self):
         nombre = prompt("pregunta","¿Cual es su nombre?")
-        alert("INFO",nombre)
-        
+        alert("INFO", nombre)        
         
     
 if __name__ == "__main__":

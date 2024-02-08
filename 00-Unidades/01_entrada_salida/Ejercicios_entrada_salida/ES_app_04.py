@@ -40,6 +40,7 @@ class App(customtkinter.CTk):
         self.txt_nombre.delete(0,"end")
         self.txt_nombre.insert(0, nombre)
         
+        
 if __name__ == "__main__":
     app = App()
     app.geometry("300x300")

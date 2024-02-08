@@ -11,7 +11,9 @@ apellido:
 Ejercicio: entrada_salida_06
 ---
 Enunciado:
-Al presionar el botón  'Sumar', se deberán obtener los valores contenidos en las cajas de texto (txt_operador_A y txt_operador_B), transformarlos en números enteros, realizar la suma y luego mostrar el resultado de la operación utilizando el Dialog Alert. 
+Al presionar el botón  'Sumar', se deberán obtener los valores contenidos en las cajas de texto 
+(txt_operador_A y txt_operador_B), transformarlos en números enteros, realizar la suma 
+y luego mostrar el resultado de la operación utilizando el Dialog Alert. 
 Ej: "El resultado de la sumas es: 755" 
 '''
 
@@ -39,9 +41,16 @@ class App(customtkinter.CTk):
 
 
     def btn_sumar_on_click(self):
-        pass
-     
-        
+        operador_a =self.txt_operador_a.get()
+        operador_b =self.txt_operador_b.get()
+        operador_a_int=int(operador_a)
+        operador_b_int=int(operador_b)
+        suma= operador_a_int + operador_b_int
+        mensaje =f"El resultado de la sumas es: {suma}"
+        alert("Resultado", mensaje)
+
+
+
 if __name__ == "__main__":
     app = App()
     app.geometry("300x300")
