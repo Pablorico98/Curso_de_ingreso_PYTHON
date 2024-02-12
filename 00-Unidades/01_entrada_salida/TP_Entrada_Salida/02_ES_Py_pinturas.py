@@ -5,15 +5,16 @@ from tkinter.simpledialog import askstring as prompt
 import customtkinter
 
 '''
-nombre:
-apellido:
+nombre: Pablo
+apellido: Rico
 ---
 TP: ES_Pinturas
 ---
 Enunciado:
 
 2.	Para el departamento de Pinturas:
-	A.	Al ingresar una temperatura en Fahrenheit debemos mostrar la temperatura en Centígrados con un mensaje concatenado 
+	A.	Al ingresar una temperatura en Fahrenheit debemos mostrar la temperatura en 
+    Centígrados con un mensaje concatenado 
         (0 °F − 32) × 5/9 = -17,78 °C
 
     B.	Al ingresar una temperatura en Centígrados debemos mostrar la temperatura en Fahrenheit 
@@ -48,10 +49,21 @@ class App(customtkinter.CTk):
         self.btn_convertir_f_c.grid(row=4, pady=10, columnspan=2, sticky="nsew")
     
     def btn_convertir_c_f_on_click(self):
-        pass
+        temperatura_c=self.txt_temperatura_c.get()
+        temperatura_c=float(temperatura_c)
+        temperatura_c_a_f= (temperatura_c * (9/5)) + 32  
+        temperatura_c_a_f=round(temperatura_c_a_f,2)
+        mensaje=f"({temperatura_c}°C × 9/5) + 32 = {temperatura_c_a_f}°F"
+        alert("UNT", mensaje)
+
 
     def btn_convertir_f_c_on_click(self):
-        pass
+        temperatura_f=self.txt_temperatura_f.get()
+        temperatura_f=float(temperatura_f)
+        temperatura_f_a_c= (temperatura_f - 32) * (5/9) 
+        temperatura_f_a_c=round( temperatura_f_a_c,2)
+        mensaje=f"({temperatura_f}°F − 32) × 5/9 = {temperatura_f_a_c} °C"
+        alert("utn",mensaje)
     
     
 if __name__ == "__main__":
