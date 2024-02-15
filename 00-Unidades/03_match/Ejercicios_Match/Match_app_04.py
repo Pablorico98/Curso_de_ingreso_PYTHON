@@ -6,8 +6,8 @@ import customtkinter
 
 
 '''
-nombre:
-apellido:
+nombre: Pablo    
+apellido: Rico
 ---
 Ejercicio: Match_04
 ---
@@ -29,7 +29,8 @@ class App(customtkinter.CTk):
         
         self.label_meses = customtkinter.CTkLabel(master=self, text="Meses")
         self.label_meses.grid(row=0, column=0, padx=20, pady=10)
-        meses = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre']
+        meses = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 
+                 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre']
         self.combobox_mes = customtkinter.CTkComboBox(master=self, values=meses)
         self.combobox_mes.grid(row=1, column=0, padx=20, pady=(10, 10))
         
@@ -38,8 +39,15 @@ class App(customtkinter.CTk):
         
     
     def btn_informar_on_click(self):
-        pass
-    
+        mes=self.combobox_mes.get()
+        match(mes):
+            case "Febrero":
+                mensaje="Si tiene 28 días"
+            case "Enero" | "Marzo" | "Mayo" | "Julio" | "Agosto" | "Octubre" | "Diciembre":
+                mensaje="Si tiene 31 días"
+            case "Abril" | "Junio" | "Septiembre" | "Noviembre":
+                mensaje="Si tiene 31 días"
+        alert("UTN",mensaje)
 if __name__ == "__main__":
     app = App()
     app.geometry("300x300")

@@ -82,6 +82,7 @@ class App(customtkinter.CTk):
         importe_3=int(importe_3)
         total=(importe_1+importe_2+importe_3)  
         total_iva=total*1.21
+        total_iva=round(total_iva,2)
         mensaje=(f"El total con iva es ${total_iva}")
         alert("UTN",mensaje)
     

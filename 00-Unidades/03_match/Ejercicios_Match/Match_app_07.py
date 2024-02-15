@@ -6,8 +6,8 @@ import customtkinter
 
 
 '''
-nombre:
-apellido:
+nombre: Pablo
+apellido: Rico
 ---
 Ejercicio: Match_07
 ---
@@ -34,9 +34,17 @@ class App(customtkinter.CTk):
         
     
     def btn_informar_on_click(self):
-        pass
-    
-    
+        destino=self.combobox_destino.get()
+        match(destino):
+            case "Bariloche":
+                mensaje="Esta al oeste"
+            case "Ushuaia":
+                mensaje="Esta en el sur"
+            case "Mar del plata":
+                mensaje= "Esta en el este"
+            case "Cataratas":
+                mensaje="Esta al norte"
+        alert("UTN",mensaje) 
 if __name__ == "__main__":
     app = App()
     app.geometry("300x300")
