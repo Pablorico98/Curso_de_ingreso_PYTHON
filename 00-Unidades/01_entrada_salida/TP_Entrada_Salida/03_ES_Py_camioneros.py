@@ -55,7 +55,7 @@ class App(customtkinter.CTk):
     
     def btn_cantidad_camiones_on_click(self):
         cantidad_toneladas=self.txt_toneladas.get()
-        cantidad_toneladas=int(cantidad_toneladas)
+        cantidad_toneladas=float(cantidad_toneladas)
         cantidad_camiones=  round((cantidad_toneladas / 3.5)+0.5)
         mensaje=f"La cantidad de camiones son {cantidad_camiones} para {cantidad_toneladas} de toneladas"
         alert("UTN", mensaje)
