@@ -5,8 +5,8 @@ from tkinter.simpledialog import askstring as prompt
 import customtkinter
 
 '''
-nombre:
-apellido:
+nombre: pablo
+apellido: rico
 ---
 TP: While_validaciones_rising_btl
 ---
