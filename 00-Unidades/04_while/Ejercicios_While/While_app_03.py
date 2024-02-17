@@ -30,14 +30,29 @@ class App(customtkinter.CTk):
         
     
     def btn_pedir_clave_on_click(self):
+        #visto en clase
+        clave=prompt("UTN", "Ingrese su clave")
+        while clave != "utn750":
+            clave=prompt("Error", "Reingrese su clave")
+        alert("UTN","Contraseña correcta")
+        
+        #usa nas recursos lo de abajo 
 
-        while True:
-            contraseña = prompt("UTN","Ingrese su clave")
-            if contraseña =="utn750":
-                alert("UTn","Contraseña correcta")
-                break
-            else:
-                alert("UTn","Contraseña incorrecta")
+        #clave=prompt("UTN", "Ingrese su clave")
+        #while not (clave == "utn750"):
+        #   clave=prompt("Error", "Reingrese su clave")
+        #alert("UTN","Contraseña correcta")
+
+
+
+        #como lo hice yo
+       # while True:
+        #    contraseña = prompt("UTN","Ingrese su clave")
+         #   if contraseña =="utn750":
+          #      alert("UTn","Contraseña correcta")
+           #     break
+            #else:
+             #   alert("UTn","Contraseña incorrecta")
         
     
 if __name__ == "__main__":

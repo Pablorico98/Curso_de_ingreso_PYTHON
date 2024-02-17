@@ -5,8 +5,8 @@ from tkinter.simpledialog import askstring as prompt
 import customtkinter
 
 '''
-nombre:
-apellido:
+nombre: Pablo
+apellido: Rico
 ---
 Ejercicio: while_06
 ---
@@ -35,9 +35,31 @@ class App(customtkinter.CTk):
 
 
     def btn_comenzar_ingreso_on_click(self):
-        pass
+    #antes del while
+        #declarar e inicializar el contador
+        contador=0
+        #declarar el acumulador
+        acumulador=0
+        while contador < 5:
+    #durante e inicializar el while
+         #pedir un numero (esto se repite 5 veces)
+            numero=prompt("Datos","Ingrese un numero")
+            numero=int(numero)
+         #acumulo el numero en el acumulador
+            acumulador+=numero
+         #incrementar la variable de control
+            contador+=1
+    #despues el while
+        #calculo el promedio 
+        promedio=acumulador/contador #podria poner "/5" Si itero esta linea de codigo voy a hacer que la cuenta se itere 5 veces porque estara dentro del while
+        #muestro el acumulador 
+        self.txt_suma_acumulada.delete(0,"end")
+        self.txt_suma_acumulada.insert(0,acumulador)
+        #muestro el promedio
+        self.txt_promedio.delete(0,"end")
+        self.txt_promedio.insert(0,promedio)
 
-    
+
 if __name__ == "__main__":
     app = App()
     app.geometry("300x300")
