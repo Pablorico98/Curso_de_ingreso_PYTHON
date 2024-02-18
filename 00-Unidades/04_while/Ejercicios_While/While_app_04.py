@@ -6,8 +6,8 @@ import customtkinter
 
 
 '''
-nombre:
-apellido:
+nombre: Pablo
+apellido: Rico
 ---
 Ejercicio: while_04
 ---
@@ -28,9 +28,15 @@ class App(customtkinter.CTk):
         self.btn_validar_numero = customtkinter.CTkButton(master=self, text="Ingresar", command=self.btn_validar_numero_on_click)
         self.btn_validar_numero.grid(row=2, pady=20, columnspan=2, sticky="nsew")
         
-    
+    #la condicion del while tiene que ser lo opuesto a lo que busco que se cumpla
     def btn_validar_numero_on_click(self):
-        pass
+        numero=prompt("UTN","Ingrese su numero") 
+        numero= float(numero)
+        while numero < 0 or numero > 9: 
+            numero=prompt("ERROR","Ingrese su numero") 
+            numero= int(numero)
+
+
     
 if __name__ == "__main__":
     app = App()

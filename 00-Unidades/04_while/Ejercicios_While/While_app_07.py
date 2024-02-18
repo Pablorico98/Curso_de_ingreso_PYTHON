@@ -43,7 +43,7 @@ class App(customtkinter.CTk):
             
             if numero == None:
                 break
-            numero=int(numero)
+            numero=float(numero)
             acumulador+=numero
             contador+=1
 

@@ -44,7 +44,7 @@ class App(customtkinter.CTk):
     #durante e inicializar el while
          #pedir un numero (esto se repite 5 veces)
             numero=prompt("Datos","Ingrese un numero")
-            numero=int(numero)
+            numero=float(numero)
          #acumulo el numero en el acumulador
             acumulador+=numero
          #incrementar la variable de control
