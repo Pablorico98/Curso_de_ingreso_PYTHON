@@ -40,26 +40,27 @@ class App(customtkinter.CTk):
                               columnspan=2, sticky="nsew")
 
     def btn_comenzar_ingreso_on_click(self):
-        contador=0
+        bandera = True # Se establece una bandera para controlar la primera iteración del bucle
         
-        while contador < 5:
-            numero=prompt("Numero","Ingrese un numero")
-            numero=int(numero)
+        while True: # Bucle que se ejecuta hasta que el usuario cancele la entrada
+            numero_ingresado = prompt("Numero", "Ingrese un numero") # Se solicita al usuario que ingrese un número
+            if numero_ingresado == None: # Si el usuario cancela la entrada, se rompe el bucle
+                break
+            numero_ingresado = int(numero_ingresado) # El número ingresado se convierte a entero para su posterior comparación
+            
+            if bandera or numero_ingresado < numero_minimo: # Si es la primera iteración del bucle o el número ingresado es menor que el mínimo actual,
+                numero_minimo = numero_ingresado  # se actualiza el valor del mínimo
+                
+            if bandera or numero_ingresado > numero_maximo: # Si es la primera iteración del bucle o el número ingresado es mayor que el máximo actual,
+                numero_maximo = numero_ingresado      # se actualiza el valor del máximo  
+                
+                bandera = False  # Se cambia el valor de la bandera para indicar que ya no es la primera iteración del bucle
+        
+        self.txt_maximo.delete(0, "end") # Se actualizan los valores mínimo y máximo en los cuadros de texto de la interfaz de usuario
+        self.txt_maximo.insert(0, numero_maximo)
+        self.txt_minimo.delete(0, "end")
+        self.txt_minimo.insert(0, numero_minimo) 
 
-            if contador==0:
-                maximo = numero
-                minimo= numero
-            else:
-                if numero > maximo:
-                    maximo== numero
-                if numero < minimo:
-                    minimo = numero
-
-            contador+=1
-        self.txt_maximo.delete(0,"end")
-        self.txt_maximo.insert(0,maximo)
-        self.txt_minimo.delete(0,"end")
-        self.txt_minimo.insert(0,minimo) 
 
 
 if __name__ == "__main__":

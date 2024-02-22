@@ -5,8 +5,8 @@ from tkinter.simpledialog import askstring as prompt
 import customtkinter
 
 '''
-nombre: pablo
-apellido: rico
+nombre:  
+apellido:  
 ---
 TP: While_validaciones_rising_btl
 ---
@@ -41,9 +41,8 @@ class App(customtkinter.CTk):
 
         self.label2 = customtkinter.CTkLabel(master=self, text="Estado")
         self.label2.grid(row=2, column=0, padx=20, pady=10)
-        self.combobox_tipo = customtkinter.CTkComboBox(
-            master=self, values=["Soltero/a", "Casado/a", "Divorciado/a", "Viudo/a"])
-        self.combobox_tipo.grid(row=2, column=1, padx=20, pady=10)
+        self.txt_tipo = customtkinter.CTkEntry(master=self)
+        self.txt_tipo.grid(row=2, column=1, padx=20, pady=10)
 
         self.label3 = customtkinter.CTkLabel(master=self, text="Legajo")
         self.label3.grid(row=3, column=0, padx=20, pady=10)
@@ -55,8 +54,34 @@ class App(customtkinter.CTk):
         self.btn_validar.grid(row=4, pady=20, columnspan=2, sticky="nsew")
 
     def btn_validar_on_click(self):
-        pass
-
+        apellido = prompt("UTN", "Ingrese su apellido")    
+        while apellido==None or apellido == " " or not apellido.isalpha():
+            apellido = prompt("ERROR", "Apellido invalido. Reingrese su apellido")
+                        
+        edad= prompt("UTN", "Ingrese su edad")
+        while edad == None or edad == " " or not edad.isdigit() or (int(edad) <18 or int(edad) > 90):
+            edad=prompt("Error", "Ingreso una letra no una edad, reingrese su edad")
+           
+                    
+        tipo=prompt("UTN","Ingrese su estado civil")
+        while  tipo == None or tipo == " " or not (tipo == "Soltero" or tipo == "Soltera" or tipo == "Casado" or tipo == "Casada" or tipo == "Viudo" or tipo == "Viuda" or tipo == "Divorciado" or tipo == "Divorciada"):
+            tipo=prompt("Error", "Reengrese un estadio civil correcto, revise si la incial es mayuscula")
+            
+        legajo= prompt("UTN", "Ingrese su numero de legajo")
+        while legajo == None or legajo == " " or not legajo.isdigit() or (int(legajo) <1000 or int(legajo) > 10000):
+           
+            legajo=prompt("Error", "Ingrese un legajo de 4 dígitos.")               
+           
+        
+        self.txt_apellido.delete(0,"end")
+        self.txt_apellido.insert(0,apellido)
+        self.txt_edad.delete(0,"end")
+        self.txt_edad.insert(0,edad)
+        self.txt_tipo.delete(0,"end")
+        self.txt_tipo.insert(0,tipo)
+        self.txt_legajo.delete(0,"end")
+        self.txt_legajo.insert(0,legajo)
+       
 
 if __name__ == "__main__":
     app = App()
