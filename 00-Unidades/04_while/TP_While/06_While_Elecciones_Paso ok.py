@@ -37,12 +37,12 @@ class App(customtkinter.CTk):
         contador_candidatos=0
         acumulador_votos=0
         acumulador_edad=0
-        continuar=True
-        continuar=question("Votacion","Desea ingresar candidatos")
+        continuar=question("Votacion","¿Desea ingresar candidatos?")
+        
         while continuar:
             nombre=prompt("Nombre", "Ingrese el nombre del candidato")
             while nombre==None or not nombre.isalpha():
-                nombre = prompt("ERROR", "Nombre invalido. Reingrese el apellido del candidato")
+                nombre = prompt("ERROR", "Nombre invalido. Reingrese el nombre del candidato")
             
             edad=prompt("Edad", "Ingrese la edad del candidato")
             while edad==None or not(edad.isdigit()) or int(edad)<25:
@@ -63,7 +63,7 @@ class App(customtkinter.CTk):
             acumulador_votos+=votos
             contador_candidatos+=1
                         
-            continuar = question("Votacion","Desea continuar ingresando candidatos")
+            continuar = question("Votacion","¿Desea continuar ingresando candidatos?")
             
         if contador_candidatos > 0:
             promedio_edad=acumulador_edad/contador_candidatos
@@ -77,9 +77,6 @@ class App(customtkinter.CTk):
             mensaje="no se ingresaron candidatos"
 
         alert("Votacion",mensaje)
-            
-
-
 
 if __name__ == "__main__":
     app = App()
